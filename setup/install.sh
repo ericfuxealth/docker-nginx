@@ -8,7 +8,7 @@ PSOL_DOWNLOAD_URL="https://dl.google.com/dl/page-speed/psol/${NPS_VERSION}.tar.g
 LIBAV_DOWNLOAD_URL="https://libav.org/releases/libav-${LIBAV_VERSION}.tar.gz"
 
 RUNTIME_DEPENDENCIES="libssl1.0.0 libxslt1.1 libpcre++ libgd3 libxpm4 libgeoip1"
-BUILD_DEPENDENCIES="make gcc g++ libssl-dev libxslt-dev libpcre++-dev libgd2-xpm-dev libgeoip-dev"
+BUILD_DEPENDENCIES="make gcc g++ libssl-dev libxslt-dev libpcre++-dev libgd2-xpm-dev libgeoip-dev wget"
 
 download_and_extract() {
   src=${1}

@@ -1,5 +1,5 @@
-FROM sameersbn/ubuntu:14.04.20161014
-MAINTAINER sameer@damagehead.com
+FROM debian:jessie
+MAINTAINER eric.fu@xealth.io
 
 ENV RTMP_VERSION=1.1.10 \
     NPS_VERSION=1.11.33.4 \
@@ -13,8 +13,8 @@ ENV RTMP_VERSION=1.1.10 \
 
 ARG BUILD_LIBAV=false
 ARG WITH_DEBUG=false
-ARG WITH_PAGESPEED=true
-ARG WITH_RTMP=true
+ARG WITH_PAGESPEED=false
+ARG WITH_RTMP=false
 
 COPY setup/ ${NGINX_SETUP_DIR}/
 RUN bash ${NGINX_SETUP_DIR}/install.sh
@@ -23,7 +23,7 @@ COPY nginx.conf /etc/nginx/nginx.conf
 COPY entrypoint.sh /sbin/entrypoint.sh
 RUN chmod 755 /sbin/entrypoint.sh
 
-EXPOSE 80/tcp 443/tcp 1935/tcp
+EXPOSE 80/tcp 443/tcp
 
 VOLUME ["${NGINX_SITECONF_DIR}"]
 
